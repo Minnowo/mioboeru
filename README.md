@@ -3,7 +3,7 @@
 Anki add-on that links vocabulary notes sharing a kanji **with the same reading**.
 I find it's easier to remember how to read a new word, if I know an existing word using the same kanji with the same reading. This plugin is designed to find those words, and add them to your card.
 
-Targets Anki 25.02.7 (Python 3.9) ((since I refuce to upgrade my Anki version)). Built on [ajt_common](https://github.com/Ajatt-Tools/ajt_common)
+Targets Anki 25.02.7 (Python 3.9) ((since I refuse to upgrade my Anki version)). Built on [ajt_common](https://github.com/Ajatt-Tools/ajt_common)
 and shows up in the AJT menu next to the other Ajatt-Tools add-ons.
 
 ## Example
