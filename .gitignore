@@ -1,0 +1,20 @@
+# Python / tooling
+__pycache__
+.mypy_cache
+.pytest_cache
+.idea
+.vscode
+dist
+
+# Anki runtime artifacts
+meta.json
+manifest.json
+*.ankiaddon
+__about__.py
+
+# Reference clones (read-only material, not part of mioboeru)
+/Japanese/
+/ajt_common/
+
+# Downloaded docs (fetch with scripts/fetch_anki_docs.sh)
+/docs/anki-addon-docs.html

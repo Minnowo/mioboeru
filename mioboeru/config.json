@@ -1,0 +1,14 @@
+{
+  "note_types": [],
+  "target_decks": [],
+  "reading_field": "VocabFurigana",
+  "destination_field": "MioboeruRelated",
+  "line_prefix_template": "{reading}：",
+  "word_template": "{word}",
+  "search_query": "",
+  "max_matches": 10,
+  "overwrite_destination": false,
+  "match_method": "dumb",
+  "min_shared_kana": 2,
+  "fuzzy_kana": true
+}

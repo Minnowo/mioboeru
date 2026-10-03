@@ -1,0 +1,55 @@
+[build-system]
+build-backend = "hatchling.build"
+requires = [
+    "hatchling>=1.24",
+    "hatch-vcs>=0.4",
+]
+
+[project]
+name = "mioboeru"
+dynamic = ["version"]
+description = "Find notes that share a kanji with the same reading and link them on the card."
+readme = "README.md"
+requires-python = "~=3.9" # target: Anki 25.02.7 bundles Python 3.9.18
+keywords = ["ajatt", "anki", "japanese"]
+classifiers = [
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.9",
+]
+# Runtime dependencies must stay empty: Anki add-ons cannot pip-install.
+# Use only the stdlib and what Anki bundles (anki, aqt, aqt.qt / PyQt6).
+dependencies = []
+
+[tool.hatch.version]
+source = "vcs"
+path = "mioboeru/__about__.py"
+
+[tool.hatch.build.hooks.vcs]
+version-file = "mioboeru/__about__.py"
+
+# Dev-only tooling. Never imported by the add-on at runtime.
+[tool.hatch.envs.dev]
+python = "3.9"
+dependencies = [
+    "aqt==25.2.7",
+    "pytest",
+    "mypy",
+    "black",
+    "isort",
+]
+
+[tool.hatch.envs.dev.scripts]
+test = "pytest {args:tests}"
+check = "mypy {args:mioboeru tests}"
+format = "isort mioboeru tests && black mioboeru tests"
+package = "$(git rev-parse --show-toplevel)/scripts/package.sh"
+
+[tool.black]
+line-length = 120
+target-version = ["py39"]
+extend-exclude = "mioboeru/ajt_common"  # submodule, formatted upstream
+
+[tool.isort]
+profile = "black"
+line_length = 120
+extend_skip = ["mioboeru/ajt_common"]
